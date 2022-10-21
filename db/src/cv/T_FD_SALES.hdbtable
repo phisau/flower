@@ -1,0 +1,1 @@
+COLUMN TABLE "ns_flower.cv::T_FD_SALES" (BILL_ID INT, AMOUNT DECIMAL(10,2))ower
