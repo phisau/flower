@@ -1,0 +1,17 @@
+PROCEDURE "ns_flower.cv::SP_CREATE_FACT_TABLE"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+  READS SQL DATA AS
+
+BEGIN
+   /*************************************
+       Write your procedure logic
+   *************************************/
+ 
+--mockdata = 	select top 1000000 hash_md5(to_binary(object_name)), rand() * 10000 from objects;
+select * from dummy;
+--INSERT INTO "S_FLOWER_1"."ns_flower.cv::T_FD_SALES" select * from :mockdata;
+
+
+END

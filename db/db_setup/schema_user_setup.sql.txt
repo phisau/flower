@@ -1,0 +1,18 @@
+create schema "LUMBER";
+set schema "LUMBER";
+create row table "PRODUCT_SEGMENT"(
+	PRODUCT NVARCHAR(10) primary key,
+	SEGMENT NVARCHAR(2)
+)
+;
+create user CUPS_LUMBER PASSWORD "HanaRocks01" SET Parameter client = '001' set usergroup default;
+alter user cups_lumber disable password lifetime;
+grant select on schema lumber to cups_lumber with grant option;
+grant select metadata on schema lumber to cups_lumber with grant option;
+
+create role lumber_container_access;
+grant select, select metadata on schema lumber to lumber_container_access with grant option;
+grant lumber_container_access to cups_lumber with admin option;
+
+
+cf cups CROSS_SCHEMA_LUMBER -p "{\"user\":\"CUPS_LUMBER\",\"password\":\"HanaRocks01\",\"driver\":\"com.sap.db.jdbc.Driver\",\"tags\":[\"hana\"] , \"schema\": \"LUMBER\"}"

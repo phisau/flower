@@ -1,0 +1,11 @@
+PROCEDURE "ns_flower.cv::SP_TEST"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic
+   *************************************/
+   select * from "ns_flower.cv::T_FD_SALES";
+END
